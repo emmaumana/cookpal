@@ -7,8 +7,7 @@ module Api
 
       sig { void }
       def index
-        collection = T.cast(Ingredient.order('created_at DESC').page(current_page).per_page(50),
-                            ActiveRecord::Relation)
+        collection = Ingredient.limit(50)
 
         return render json: { error: 'No ingredients found' }, status: :not_found if collection.empty?
 

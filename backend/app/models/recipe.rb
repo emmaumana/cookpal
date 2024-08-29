@@ -28,7 +28,7 @@ class Recipe < ApplicationRecord
           placeholders = terms.map { |term| "%#{term}%" }
 
           # TOOD: Fix this
-          joins(:ingredients)
+          T.unsafe(joins(:ingredients))
             .where(query, *placeholders)
             .distinct
           }

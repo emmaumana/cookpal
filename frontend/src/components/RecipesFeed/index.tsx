@@ -9,7 +9,7 @@ import { useLocalStorage } from 'hooks/useLocalStorage'
 
 interface Props {
   loading: boolean
-  recipes: RecipeDetailFragment[]
+  recipes: RecipeDetailFragment[] | undefined
   itemsPerPage: number
   onRemoveFavorite?: () => void
 }
@@ -25,7 +25,7 @@ export const RecipesFeed = ({ loading, recipes, itemsPerPage, onRemoveFavorite }
     <AppBox className="recipes-feed__grid" display="grid" gap="s24" gridColumns="grid-cols-4">
       {/* listing */}
 
-      {loading
+      {loading || !recipes
         ? range(itemsPerPage).map((idx) => <RecipeSingleSkeleton key={`skeleton-${idx}`} />)
         : recipes.map((recipe) => (
             <RecipesSingle

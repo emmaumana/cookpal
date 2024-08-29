@@ -77,7 +77,7 @@ export const HomePage = () => {
         </AppBox>
         <Outlet />
       </AppBox>
-      {recipesToDisplay?.length ? (
+      {recipesToDisplay?.length || loading ? (
         <RecipesFeed loading={loading} recipes={recipesToDisplay} itemsPerPage={itemsPerPage} />
       ) : (
         <EmptyState title="No recepies found..." />

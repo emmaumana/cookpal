@@ -834,7 +834,7 @@ class Parlour::RbiGenerator::Namespace < ::Parlour::RbiGenerator::RbiObject
   # @param block [T.proc.params(x: Attribute).void, nil]
   # @return [Attribute]
   #
-  # source://sorbet-runtime/0.5.11547/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11551/lib/types/private/methods/_methods.rb#257
   def create_attr(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/rbi_generator/namespace.rb#468
@@ -1042,7 +1042,7 @@ class Parlour::RbiGenerator::Namespace < ::Parlour::RbiGenerator::RbiObject
 
   # @return [Array<RbiGenerator::TypeAlias>]
   #
-  # source://sorbet-runtime/0.5.11547/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11551/lib/types/private/methods/_methods.rb#257
   def type_aliases(*args, **_arg1, &blk); end
 
   private
@@ -1773,7 +1773,7 @@ class Parlour::RbsGenerator::Namespace < ::Parlour::RbsGenerator::RbsObject
   # @param block [T.proc.params(x: Attribute).void, nil]
   # @return [Attribute]
   #
-  # source://sorbet-runtime/0.5.11547/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11551/lib/types/private/methods/_methods.rb#257
   def create_attr(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/rbs_generator/namespace.rb#343
@@ -1940,7 +1940,7 @@ class Parlour::RbsGenerator::Namespace < ::Parlour::RbsGenerator::RbsObject
 
   # @return [Array<RbsGenerator::TypeAlias>]
   #
-  # source://sorbet-runtime/0.5.11547/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11551/lib/types/private/methods/_methods.rb#257
   def type_aliases(*args, **_arg1, &blk); end
 
   private
@@ -2287,7 +2287,7 @@ class Parlour::TypeParser::IntermediateSig < ::T::Struct
   prop :params, T.nilable(T::Array[::Parser::AST::Node])
 
   class << self
-    # source://sorbet-runtime/0.5.11547/lib/types/struct.rb#13
+    # source://sorbet-runtime/0.5.11551/lib/types/struct.rb#13
     def inherited(s); end
   end
 end
@@ -2342,7 +2342,7 @@ class Parlour::TypedObject
   # @param comment [String, Array<String>]
   # @return [void]
   #
-  # source://sorbet-runtime/0.5.11547/lib/types/private/methods/_methods.rb#257
+  # source://sorbet-runtime/0.5.11551/lib/types/private/methods/_methods.rb#257
   def add_comments(*args, **_arg1, &blk); end
 
   # source://parlour//lib/parlour/typed_object.rb#32

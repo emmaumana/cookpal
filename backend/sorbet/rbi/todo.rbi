@@ -4,8 +4,4 @@
 
 # typed: false
 
-module ApplicationController::GeneratedPathHelpersModule; end
-module ApplicationController::GeneratedUrlHelpersModule; end
-module RecipeCategory::PrivateCollectionProxy; end
-module RecipeIngredient::PrivateCollectionProxy; end
 module T::Private::Methods::Signature; end

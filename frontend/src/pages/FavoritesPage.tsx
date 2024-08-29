@@ -19,7 +19,7 @@ export const FavoritesPage = () => {
   return (
     <AppBox flexDirection="column" height="full" paddingTop="s120" gap="s80">
       <AppHeading title="Your favorites recipes" />
-      {recipesToDisplay.length ? (
+      {recipesToDisplay.length || loading ? (
         <RecipesFeed
           loading={loading}
           itemsPerPage={12}
