@@ -1,0 +1,364 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  DisabledByDefault: false
+  TargetRubyVersion: 3.3.4
+  NewCops: enable
+  Exclude:
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+    - "bin/*"
+    - "db/seeds/**/*"
+    - "db/schema.rb"
+    - "db/data_schema.rb"
+    - "db/data/**/*"
+    - "db/migrate/**/*"
+    - "**/migrate/**/*"
+    - "sorbet/**/*"
+    - "graphql/**/*"
+    - "app/graphql/**/*"
+    - "spec/graphql/**/*"
+    - "lib/graphql/**/*"
+    - "sorbet/**/*.rbi"
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  Enabled: true
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+Layout/ElseAlignment:
+  Enabled: false
+
+Layout/EndAlignment:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/ParameterAlignment:
+  Enabled: false
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
+
+Layout/FirstParameterIndentation:
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+
+Layout/BeginEndAlignment: # (new in 0.91)
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor: # (new in 0.83)
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator: # (new in 0.82)
+  Enabled: true
+
+Lint/ConstantDefinitionInBlock: # (new in 0.91)
+  Enabled: false # TODO: Re-enable after updating (https://github.com/rubocop/rubocop/issues/9025): true
+
+Lint/DuplicateElsifCondition: # (new in 0.88)
+  Enabled: true
+
+Lint/DuplicateMethods:
+  Enabled: true
+  Severity: error
+
+Lint/DuplicateRequire: # (new in 0.90)
+  Enabled: true
+
+Lint/DuplicateRescueException: # (new in 0.89)
+  Enabled: true
+
+Lint/EmptyConditionalBody: # (new in 0.89)
+  Enabled: true
+
+Lint/EmptyFile: # (new in 0.90)
+  Enabled: true
+
+Lint/FloatComparison: # (new in 0.89)
+  Enabled: true
+
+Lint/HashCompareByIdentity: # (new in 0.93)
+  Enabled: true
+
+Lint/IdentityComparison: # (new in 0.91)
+  Enabled: true
+
+Lint/MissingSuper: # (new in 0.89)
+  Enabled: false # TODO: https://github.com/rubocop/rubocop/issues/8506
+
+Lint/MixedRegexpCaptureTypes: # (new in 0.85)
+  Enabled: true
+
+Lint/OutOfRangeRegexpRef: # (new in 0.89)
+  Enabled: true
+
+Lint/RaiseException: # (new in 0.81)
+  Enabled: true
+
+Lint/RedundantSafeNavigation: # (new in 0.93)
+  Enabled: true
+
+Lint/SelfAssignment: # (new in 0.89)
+  Enabled: true
+
+Lint/StructNewOverride: # (new in 0.81)
+  Enabled: true
+
+Lint/TopLevelReturnWithArgument: # (new in 0.89)
+  Enabled: true
+
+Lint/TrailingCommaInAttributeDeclaration: # (new in 0.90)
+  Enabled: true
+
+Lint/UnreachableLoop: # (new in 0.89)
+  Enabled: true
+
+Lint/UselessMethodDefinition: # (new in 0.90)
+  Enabled: true
+
+Lint/UselessTimes: # (new in 0.91)
+  Enabled: true
+
+Style/AccessorGrouping: # (new in 0.87)
+  Enabled: false
+
+Style/BisectedAttrAccessor: # (new in 0.87)
+  Enabled: true
+
+Style/CaseLikeIf: # (new in 0.88)
+  Enabled: true
+
+Style/ClassEqualityComparison: # (new in 0.93)
+  Enabled: true
+
+Style/CombinableLoops: # (new in 0.90)
+  Enabled: true
+
+Style/ExplicitBlockArgument: # (new in 0.89)
+  Enabled: true
+
+Style/ExponentialNotation: # (new in 0.82)
+  Enabled: true
+
+Style/GlobalStdStream: # (new in 0.89)
+  Enabled: true
+
+Style/HashAsLastArrayItem: # (new in 0.88)
+  Enabled: false
+
+Style/HashLikeCase: # (new in 0.88)
+  Enabled: true
+
+Style/KeywordParametersOrder: # (new in 0.90)
+  Enabled: true
+
+Style/OptionalBooleanParameter: # (new in 0.89)
+  Enabled: true
+
+Style/RedundantAssignment: # (new in 0.87)
+  Enabled: true
+
+Style/RedundantFetchBlock: # (new in 0.86)
+  Enabled: true
+
+Style/RedundantFileExtensionInRequire: # (new in 0.88)
+  Enabled: true
+
+Style/RedundantRegexpCharacterClass: # (new in 0.85)
+  Enabled: true
+
+Style/RedundantRegexpEscape: # (new in 0.85)
+  Enabled: true
+
+Style/RedundantSelfAssignment: # (new in 0.90)
+  Enabled: true
+
+Style/SingleArgumentDig: # (new in 0.89)
+  Enabled: true
+
+Style/SlicingWithRange: # (new in 0.83)
+  Enabled: true
+
+Style/SoleNestedConditional: # (new in 0.89)
+  Enabled: true
+
+Style/StringConcatenation: # (new in 0.89)
+  Enabled: true
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Style/DateTime:
+  Enabled: true
+
+Lint/Debugger:
+  Enabled: true
+  Severity: error
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Rails/TimeZone:
+  Enabled: false
+
+Rails/Date:
+  Enabled: false
+
+Rails/Blank:
+  Enabled: true
+
+# Model.find(x) returns T.untyped in Sorbet, so using Model.find_by!(id: x), that's well typed, should be allowed
+# Also, this doesn't really know when you are calling a Rails method or something else
+Rails/FindById:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+# This is incompatible with Sorbet sigs
+Naming/BlockForwarding:
+  Enabled: false
+
+# This cop enforces using Rails delegates, but that doesn't sit well with Sorbet sigs
+Rails/Delegate:
+  Enabled: false
+
+# This cop enforces an API that doesn't sit well with Sorbet
+Rails/ContentTag:
+  Enabled: false
+
+# TODO: This cop had a bug on this version of rubocop-rails that was fixed in 2.22.1, update and re-enable
+Rails/DuplicateAssociation:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+# This doesn't really know whether you are calling a Rails method or something else, so it's not useful
+Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/MigrationClassName:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/spec/**/*"
+    - "**/factories/**/*"
+    - "**/seeds/**/*"
+    - "**/migrate/**/*"
+    - "**/db/data/**/*"
+    - "**/db/data_schema.rb"
+    - "**/db/schema.rb"
+    - "**/db/seeds/**/*"
+
+Metrics/MethodLength:
+  Exclude:
+    - "**/presenters/**/*"
+    - "**/spec/**/*"
+    - "**/factories/**/*"
+    - "**/seeds/**/*"
+    - "**/migrate/**/*"
+    - "**/db/**/*"
+    - "**/db/data_schema.rb"
+    - "**/db/schema.rb"
+
+Metrics/AbcSize:
+  Exclude:
+    - "**/presenters/**/*"
+    - "**/spec/**/*"
+    - "**/factories/**/*"
+    - "**/seeds/**/*"
+    - "**/migrate/**/*"
+    - "**/db/**/*"
+
+# This conflicts with fully qualified event subscriptions
+Style/RedundantConstantBase:
+  Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - "**/factories/**/*"
+    - "**/seeds/**/*"
+    - "**/migrate/**/*"
+    - "**/db/data/**/*"
+    - "**/db/data_schema.rb"
+    - "**/db/schema.rb"
+    - "**/db/seeds/**/*"

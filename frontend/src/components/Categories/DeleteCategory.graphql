@@ -1,0 +1,9 @@
+mutation UpdateCategory($id: ID!, $name: String!) {
+  categoryUpdate(input: { id: $id, name: $name }) {
+    category {
+      id
+      name
+    }
+    errors
+  }
+}

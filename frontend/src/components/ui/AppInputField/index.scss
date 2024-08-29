@@ -1,0 +1,11 @@
+.app-input {
+  font-size: 1.125rem;
+
+  &__control {
+    font: inherit;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    width: 100%;
+  }
+}

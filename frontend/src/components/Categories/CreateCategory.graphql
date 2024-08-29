@@ -1,0 +1,9 @@
+mutation CreateCategory($name: String!, $recipeIds: [ID!]) {
+  categoryCreate(input: { name: $name, recipeIds: $recipeIds }) {
+    category {
+      id
+      name
+    }
+    errors
+  }
+}

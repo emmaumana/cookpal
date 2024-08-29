@@ -1,0 +1,13 @@
+@import '../../../assets/sass/_variables.scss';
+
+.app-container {
+  &__wrapper {
+    grid-template-columns: minmax(200px, 350px) 1fr;
+    background: $c-white;
+
+    @media (max-width: 768px) {
+      display: flex;
+      grid-template-columns: 1fr;
+    }
+  }
+}

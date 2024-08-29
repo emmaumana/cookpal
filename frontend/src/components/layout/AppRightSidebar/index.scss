@@ -1,0 +1,39 @@
+@import '../../../assets/sass/_variables.scss';
+
+.app-sidebar {
+  &__logo {
+    margin: 0 auto;
+    height: 35px;
+
+    img {
+      width: auto;
+      height: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 40px;
+
+    &-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      cursor: pointer;
+      padding: 2px 5px;
+      transition: 0.3s;
+
+      &.active,
+      &:hover {
+        color: $c-primary;
+        & > svg {
+          color: $c-primary;
+          fill: $c-primary;
+        }
+      }
+    }
+  }
+}

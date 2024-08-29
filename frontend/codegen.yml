@@ -1,0 +1,19 @@
+overwrite: true
+schema: '../backend/schema.graphql'
+documents: 'src/**/*.graphql'
+ignoreNoDocuments: true
+watch: true
+generates:
+  './src/graphql/generated.tsx':
+    # preset: 'client'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      # - typescript-resolvers
+    config:
+      withHooks: true
+      withComponent: true
+      # withMutationFn: true
+      # withMutationOptionsType: true
+#

@@ -1,0 +1,92 @@
+@import '../../assets/sass/_variables.scss';
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  background-color: $c-rgba-500;
+
+  &__wrapper {
+    width: 780px;
+    height: auto;
+    background-color: $c-secondary-lighter;
+    overflow: hidden;
+
+    &-inner {
+      overflow-y: scroll;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.recipe-detail {
+  &__heading {
+    position: relative;
+
+    &-detail {
+      h2 {
+        display: flex;
+        height: auto;
+        font-size: 3rem;
+        color: $c-white;
+      }
+
+      span {
+        display: inline-block;
+        padding: 3px 5px;
+        border-radius: 4px;
+        background-color: $c-accent;
+        color: $c-white;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: $c-rgba-400;
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    img {
+      max-width: 100%;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__ingredients {
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 2rem;
+    }
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 80%;
+      gap: 12px;
+      padding: 10px;
+    }
+  }
+}

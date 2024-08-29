@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+@mixin primary-font-mixing {
+  font-family: $primary-font;
+  font-optical-sizing: auto;
+  font-variation-settings: 'wdth' 100.6;
+}
+
+@mixin secondary-font-mixing {
+  font-family: $secondary-font;
+  font-optical-sizing: auto;
+  font-variation-settings: 'wdth' 100;
+}

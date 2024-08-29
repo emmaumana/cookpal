@@ -1,0 +1,100 @@
+{
+  "editor.fontFamily": "'IBM Plex Mono', 'JetBrains Mono', 'Cascadia Mono', 'Fira Code', 'Monaspace Neon', sans-serif",
+  "editor.fontWeight": 400,
+  "editor.fontSize": 14,
+  "editor.letterSpacing": 0.9,
+  "editor.lineHeight": 2,
+  "sorbet.lspConfigs": [
+    {
+      "id": "stable",
+      "name": "Sorbet",
+      "description": "Stable Sorbet Ruby IDE features",
+      "cwd": "${workspaceFolder}",
+      "command": ["bundle", "exec", "srb", "typecheck", "--lsp", "."]
+    }
+  ],
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop",
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "terminal.integrated.profiles.linux": {
+    "frontend": {
+      "path": "/mnt/c/windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+      "args": [
+        "-NoExit",
+        "-Command",
+        "cd 'frontend';$host.ui.RawUI.WindowTitle = 'Frontend';"
+      ],
+      "icon": "vm",
+      "name": "PowerShell",
+      "color": "terminal.ansiBlue",
+      
+    },
+    "codegen-server": {
+      "path": "/mnt/c/windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+      "args": [
+        "-NoExit",
+        "-Command",
+        "cd 'frontend';$host.ui.RawUI.WindowTitle = 'Frontend'; npm run codegen"
+      ],
+      "icon": "graphql-logo",
+      "name": "PowerShell",
+      "color": "terminal.ansiBlue",
+      
+    },
+    "frontend-server": {
+      "path": "/mnt/c/windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+      "args": [
+        "-NoExit",
+        "-Command",
+        "cd 'frontend';$host.ui.RawUI.WindowTitle = 'Frontend'; npm run dev"
+      ],
+      "icon": "vm-running",
+      "name": "PowerShell",
+      "color": "terminal.ansiBlue",
+      
+    },
+    "backend": {
+      "path": "bash",
+      "name": "Backend",
+      "color": "terminal.ansiRed",
+      "icon": "server-environment",
+      "args": [
+        "-c",
+        "echo -ne \"\\033]0;Frontend\\007\"; cd backend; exec bash"
+      ],
+    },
+    "rails-console": {
+      "path": "bash",
+      "name": "Console",
+      "color": "terminal.ansiYellow",
+      "icon": "debug-console",
+      "args": [
+        "-c",
+        "echo -ne \"\\033]0;Frontend\\007\"; cd backend; rails c; exec bash"
+      ],
+    },
+    "rails-server": {
+      "path": "bash",
+      "name": "Console",
+      "color": "terminal.ansiGreen",
+      "icon": "server-process",
+      "args": [
+        "-c",
+        "echo -ne \"\\033]0;Frontend\\007\"; cd backend; rails s; exec bash"
+      ],
+    },
+  },
+  "terminal.integrated.defaultProfile.linux": "backend",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+}

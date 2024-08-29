@@ -1,0 +1,17 @@
+query GetRecipes($ids: [ID!], $search: String, $after: String) {
+  recipesConnection(ids: $ids, search: $search, after: $after) {
+    edges {
+      cursor
+      node {
+        ...RecipeDetail
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    recordCount
+  }
+}

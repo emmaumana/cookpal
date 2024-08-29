@@ -1,0 +1,23 @@
+fragment RecipeDetail on Recipe {
+  id
+  title
+  slug
+  description
+  cookTimeMinutes
+  preTimeMinutes
+  imageUrl
+  rating
+  createdAt
+  categories {
+    nodes {
+      id
+      name
+    }
+  }
+  ingredients {
+    nodes {
+      id
+      title
+    }
+  }
+}
