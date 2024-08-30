@@ -60,28 +60,25 @@ export const HomePage = () => {
     <>
       <AppSearch totalFound={totalRecipes} onSearch={(query) => handleOnSearch(query)} />
 
-      <AppBox
-        className="recipes-feed__heading"
-        justifyContent="space-between"
-        alignItems="flex-start"
-        paddingTop="s24"
-      >
-        <AppHeading title="Explore recepies" subtitle="Explore recipes based on top votes" />
-        <AppBox className="recipes-feed__nav" gap="s12">
-          <button onClick={previousPage} disabled={!hasPreviousPage}>
-            <AppIcon className="recipes-feed__left-arrow" icon="AiOutlineArrowLeft" />
-          </button>
-          <button onClick={handleNextPage} disabled={!hasNextPage}>
-            <AppIcon className="recipes-feed__rigth-arrow" icon="AiOutlineArrowRight" />
-          </button>
+      <AppBox className="recipes-container" flexDirection="column" paddingTop="s24" gap="s24">
+        <AppBox justifyContent="space-between" width="full" alignItems="flex-start">
+          <AppHeading title="Explore recepies" subtitle="Explore recipes based on top votes" />
+          <AppBox className="recipes-feed__nav" gap="s12">
+            <button onClick={previousPage} disabled={!hasPreviousPage}>
+              <AppIcon className="recipes-feed__left-arrow" icon="AiOutlineArrowLeft" />
+            </button>
+            <button onClick={handleNextPage} disabled={!hasNextPage}>
+              <AppIcon className="recipes-feed__rigth-arrow" icon="AiOutlineArrowRight" />
+            </button>
+          </AppBox>
         </AppBox>
+        {recipesToDisplay?.length || loading ? (
+          <RecipesFeed loading={loading} recipes={recipesToDisplay} itemsPerPage={itemsPerPage} />
+        ) : (
+          <EmptyState title="No recepies found..." />
+        )}
         <Outlet />
       </AppBox>
-      {recipesToDisplay?.length || loading ? (
-        <RecipesFeed loading={loading} recipes={recipesToDisplay} itemsPerPage={itemsPerPage} />
-      ) : (
-        <EmptyState title="No recepies found..." />
-      )}
     </>
   )
 }

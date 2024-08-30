@@ -22,7 +22,7 @@ export const RecipesFeed = ({ loading, recipes, itemsPerPage, onRemoveFavorite }
   }
 
   return (
-    <AppBox className="recipes-feed__grid" display="grid" gap="s24" gridColumns="grid-cols-4">
+    <AppBox className="recipes-feed__grid" display="grid" gap="s24">
       {/* listing */}
 
       {loading || !recipes

@@ -8350,9 +8350,6 @@ class ActionController::TestCase < ::ActiveSupport::TestCase
   # source://actionpack//lib/action_controller/test_case.rb#591
   def _controller_class?; end
 
-  # source://railties/7.2.1/lib/rails/test_help.rb#36
-  def before_setup; end
-
   class << self
     # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
@@ -12480,14 +12477,6 @@ class ActionDispatch::IntegrationTest < ::ActiveSupport::TestCase
   include ::Turbo::TestAssertions::IntegrationTestAssertions
   extend ::ActionDispatch::IntegrationTest::Behavior::ClassMethods
   extend ::ActionDispatch::Assertions::RoutingAssertions::WithIntegrationRouting::ClassMethods
-
-  # source://railties/7.2.1/lib/rails/test_help.rb#43
-  def before_setup; end
-
-  class << self
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#31
-    def fixture_paths; end
-  end
 end
 
 # source://actionpack//lib/action_dispatch/testing/integration.rb#650
@@ -12505,6 +12494,10 @@ module ActionDispatch::IntegrationTest::Behavior
   include ::ActionDispatch::Routing::UrlFor
   include ::ActionDispatch::IntegrationTest::UrlOptions
   include ::ActionDispatch::Assertions::RoutingAssertions::WithIntegrationRouting
+  include ::Turbo::TestAssertions::IntegrationTestAssertions
+
+  mixes_in_class_methods ::ActionDispatch::IntegrationTest::Behavior::ClassMethods
+  mixes_in_class_methods ::ActionDispatch::Assertions::RoutingAssertions::WithIntegrationRouting::ClassMethods
 
   # source://actionpack//lib/action_dispatch/testing/integration.rb#683
   def app; end

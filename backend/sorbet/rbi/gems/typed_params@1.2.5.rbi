@@ -8,9 +8,6 @@
 # source://typed_params//lib/typed_params/mapper.rb#3
 module TypedParams
   class << self
-    # source://sorbet-rails/0.7.34/lib/sorbet-rails/typed_params.rb#7
-    def [](type); end
-
     # source://typed_params//lib/typed_params.rb#85
     def config; end
 

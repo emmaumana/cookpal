@@ -12123,6 +12123,7 @@ class ActiveSupport::TestCase < ::Minitest::Test
   include ::ActiveSupport::Testing::ConstantStubbing
   include ::ActiveSupport::Testing::TimeHelpers
   include ::ActiveSupport::Testing::FileFixtures
+  include ::Turbo::TestAssertions
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
   extend ::ActiveSupport::Testing::SetupAndTeardown::ClassMethods
@@ -12197,80 +12198,11 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
   def file_fixture_path?; end
 
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#33
-  def fixture_class_names; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#33
-  def fixture_class_names=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#33
-  def fixture_class_names?; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#31
-  def fixture_paths; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#31
-  def fixture_paths?; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#38
-  def fixture_sets; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#38
-  def fixture_sets=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#38
-  def fixture_sets?; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#32
-  def fixture_table_names; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#32
-  def fixture_table_names=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#32
-  def fixture_table_names?; end
-
   # source://activesupport//lib/active_support/test_case.rb#300
   def inspect; end
 
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#37
-  def lock_threads; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#37
-  def lock_threads=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#37
-  def lock_threads?; end
-
   # source://minitest/5.25.1/lib/minitest.rb#375
   def method_name; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#36
-  def pre_loaded_fixtures; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#36
-  def pre_loaded_fixtures=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#36
-  def pre_loaded_fixtures?; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#35
-  def use_instantiated_fixtures; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#35
-  def use_instantiated_fixtures=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#35
-  def use_instantiated_fixtures?; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#34
-  def use_transactional_tests; end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#34
-  def use_transactional_tests=(_arg0); end
-
-  # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#34
-  def use_transactional_tests?; end
 
   class << self
     # source://activesupport//lib/active_support/callbacks.rb#70
@@ -12302,51 +12234,6 @@ class ActiveSupport::TestCase < ::Minitest::Test
 
     # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
     def file_fixture_path?; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#33
-    def fixture_class_names; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#33
-    def fixture_class_names=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#33
-    def fixture_class_names?; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#31
-    def fixture_paths; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#31
-    def fixture_paths=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#31
-    def fixture_paths?; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#38
-    def fixture_sets; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#38
-    def fixture_sets=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#38
-    def fixture_sets?; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#32
-    def fixture_table_names; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#32
-    def fixture_table_names=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#32
-    def fixture_table_names?; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#37
-    def lock_threads; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#37
-    def lock_threads=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#37
-    def lock_threads?; end
 
     # Parallelizes the test suite.
     #
@@ -12419,15 +12306,6 @@ class ActiveSupport::TestCase < ::Minitest::Test
     # source://activesupport//lib/active_support/test_case.rb#118
     def parallelize_teardown(&block); end
 
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#36
-    def pre_loaded_fixtures; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#36
-    def pre_loaded_fixtures=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#36
-    def pre_loaded_fixtures?; end
-
     # Returns the order in which test cases are run.
     #
     #   ActiveSupport::TestCase.test_order # => :random
@@ -12450,24 +12328,6 @@ class ActiveSupport::TestCase < ::Minitest::Test
     #
     # source://activesupport//lib/active_support/test_case.rb#34
     def test_order=(new_order); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#35
-    def use_instantiated_fixtures; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#35
-    def use_instantiated_fixtures=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#35
-    def use_instantiated_fixtures?; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#34
-    def use_transactional_tests; end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#34
-    def use_transactional_tests=(value); end
-
-    # source://activerecord/7.2.1/lib/active_record/test_fixtures.rb#34
-    def use_transactional_tests?; end
   end
 end
 
@@ -13317,20 +13177,6 @@ class ActiveSupport::Testing::SimpleStubs::Stub < ::Struct
     def members; end
     def new(*_arg0); end
   end
-end
-
-# source://activesupport//lib/active_support/testing/stream.rb#5
-module ActiveSupport::Testing::Stream
-  private
-
-  # source://activesupport//lib/active_support/testing/stream.rb#23
-  def capture(stream); end
-
-  # source://activesupport//lib/active_support/testing/stream.rb#17
-  def quietly(&block); end
-
-  # source://activesupport//lib/active_support/testing/stream.rb#7
-  def silence_stream(stream); end
 end
 
 # Logs a "PostsControllerTest: test name" heading before each test to
@@ -19723,6 +19569,7 @@ class Pathname
 end
 
 module Process
+  extend ::Bundler::ConnectionPool::ForkTracker
   extend ::ActiveSupport::ForkTracker::CoreExt
 
   class << self
@@ -20088,45 +19935,6 @@ class String
   #
   # source://activesupport//lib/active_support/core_ext/string/zones.rb#9
   def in_time_zone(zone = T.unsafe(nil)); end
-
-  # Indents the lines in the receiver:
-  #
-  #   <<EOS.indent(2)
-  #   def some_method
-  #     some_code
-  #   end
-  #   EOS
-  #   # =>
-  #     def some_method
-  #       some_code
-  #     end
-  #
-  # The second argument, +indent_string+, specifies which indent string to
-  # use. The default is +nil+, which tells the method to make a guess by
-  # peeking at the first indented line, and fall back to a space if there is
-  # none.
-  #
-  #   "  foo".indent(2)        # => "    foo"
-  #   "foo\n\t\tbar".indent(2) # => "\t\tfoo\n\t\t\t\tbar"
-  #   "foo".indent(2, "\t")    # => "\t\tfoo"
-  #
-  # While +indent_string+ is typically one space or tab, it may be any string.
-  #
-  # The third argument, +indent_empty_lines+, is a flag that says whether
-  # empty lines should be indented. Default is false.
-  #
-  #   "foo\n\nbar".indent(2)            # => "  foo\n\n  bar"
-  #   "foo\n\nbar".indent(2, nil, true) # => "  foo\n  \n  bar"
-  #
-  # source://activesupport//lib/active_support/core_ext/string/indent.rb#42
-  def indent(amount, indent_string = T.unsafe(nil), indent_empty_lines = T.unsafe(nil)); end
-
-  # Same as +indent+, except it indents the receiver in-place.
-  #
-  # Returns the indented string, or +nil+ if there was nothing to indent.
-  #
-  # source://activesupport//lib/active_support/core_ext/string/indent.rb#7
-  def indent!(amount, indent_string = T.unsafe(nil), indent_empty_lines = T.unsafe(nil)); end
 
   # Wraps the current string in the ActiveSupport::StringInquirer class,
   # which gives you a prettier way to test for equality.

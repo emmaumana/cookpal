@@ -16,20 +16,11 @@ module Api
 
       sig { void }
       def show
-      ingredient = Ingredient.find_by(id: show_params.id)
+      ingredient = Ingredient.find_by(id: show_param_id)
 
       return render json: { error: 'Recipe not found' }, status: :not_found if ingredient.nil?
 
       render json: IngredientPresenter.new(source: ingredient).serialize
-      end
-
-      sig { returns(ShowParams) }
-      def show_params
-        TypedParams[ShowParams].new.extract!(params)
-      end
-
-      class ShowParams < T::Struct
-        const :id, String
       end
     end
   end

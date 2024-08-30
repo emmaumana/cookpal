@@ -7,12 +7,14 @@ import { AppBadge } from 'components/ui/AppBadge'
 import { AppBox } from 'components/ui/AppBox'
 import { AppIcon } from 'components/ui/AppIcon'
 import { useGetRecipeQuery } from 'graphql/generated'
+import { useLocalStorage } from 'hooks/useLocalStorage'
 
 export const RecipeDetailPage = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const recipeId = location.state?.id
   const modalContainer = useRef<HTMLDivElement>(null)
+  const { storageValues } = useLocalStorage('searches')
 
   const { data, loading } = useGetRecipeQuery({
     variables: { id: recipeId || '' },
@@ -28,6 +30,17 @@ export const RecipeDetailPage = () => {
   const handleOnClick = (e: React.MouseEvent) => {
     if (e.target !== modalContainer.current) return
     navigate(-1)
+  }
+  const searchMatch = (string: string) => {
+    return string
+      .split(/[\s,]+/)
+      .map((word) => {
+        if (storageValues.includes(word)) {
+          return `<span class="highlight">${word}</span>`
+        }
+        return word
+      })
+      .join(' ')
   }
 
   return (
@@ -110,7 +123,11 @@ export const RecipeDetailPage = () => {
                   </h3>
                   <ul>
                     {recipeIngredients.map((ingredient) => (
-                      <li key={`ingedient-list-item-${ingredient.id}`}>- {ingredient.title}</li>
+                      <li key={`ingedient-list-item-${ingredient.id}`}>
+                        <span
+                          dangerouslySetInnerHTML={{ __html: searchMatch(ingredient.title) }}
+                        ></span>
+                      </li>
                     ))}
                   </ul>
                 </AppBox>

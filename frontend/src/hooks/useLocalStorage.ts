@@ -8,29 +8,44 @@ export const useLocalStorage = (storage: StorageKey) => {
 
   const addItemToStore = (item: unknown) => {
     const newValues = [...storageValues, item]
-    setStorageValues(newValues)
-    mergeStorageValues(newValues)
+    mergeValues(newValues)
+  }
+
+  const addItemsToStore = (items: unknown) => {
+    const newValues = [items]
+    mergeValues(newValues)
   }
 
   const removeItemFromStore = (item: unknown) => {
     const newValues = [...storageValues.filter((value) => value != item)]
+    mergeValues(newValues)
+  }
+
+  const clearStorage = () => {
+    localStorage.removeItem(storage)
+    setStorageValues([])
+  }
+
+  const mergeValues = (newValues: unknown[]) => {
     setStorageValues(newValues)
-    mergeStorageValues(newValues)
+    localStorage.setItem(storage, newValues.join(','))
   }
 
   const storeIncludesItem = (item: unknown) => storageValues.includes(item)
-
-  const mergeStorageValues = (newValues: unknown[]) =>
-    localStorage.setItem(storage, newValues.join(','))
-
-  const refetchStorage = () => {
-    initialize()
-  }
+  const refetchStorage = () => initialize()
 
   useEffect(() => {
     initialize()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { storageValues, addItemToStore, removeItemFromStore, storeIncludesItem, refetchStorage }
+  return {
+    storageValues,
+    addItemToStore,
+    removeItemFromStore,
+    storeIncludesItem,
+    refetchStorage,
+    clearStorage,
+    addItemsToStore,
+  }
 }

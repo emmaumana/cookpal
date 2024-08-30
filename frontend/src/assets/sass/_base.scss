@@ -14,15 +14,29 @@
 
 :root {
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.6rem;
   background: $c-lime-light;
   font-size: 14px;
   position: relative;
+  color: $c-secondary;
+}
+
+html {
+  overflow: hidden;
 }
 
 html,
-body {
-  color: $c-secondary;
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+body,
+#root {
+  flex: 1;
 }
 
 h1,

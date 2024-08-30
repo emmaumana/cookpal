@@ -4,4 +4,4 @@
 
 # typed: false
 
-module T::Private::Methods::Signature; end
+module Bundler::ConnectionPool::ForkTracker; end

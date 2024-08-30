@@ -1,5 +1,6 @@
 .recipes-feed {
   &__grid {
     transition: 0.75s ease-out;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 343px));
   }
 }

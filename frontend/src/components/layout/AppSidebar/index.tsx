@@ -20,7 +20,7 @@ export const AppSidebar = () => {
       justifyItems="center"
       className="app-sidebar"
       backgroundColor="white"
-      gap="s80"
+      gap="s60"
     >
       <div className="app-sidebar__logo">
         <img src={appLogo} width="220px"></img>

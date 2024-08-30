@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
 
   sig { returns(Integer) }
   def page_params
-    TypedParams[ActionController::Parameters].new.extract!(params)[:page].to_i
+    params['page'].to_i
+  end
+
+  sig { returns(Integer) }
+  def show_param_id
+    params['id'].to_i
   end
 end

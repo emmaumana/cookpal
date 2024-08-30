@@ -21,7 +21,7 @@ class Recipe < ApplicationRecord
     scope :by_slug, ->(slug) { where(slug: slug) }
     scope :by_ingredients_search,
           lambda { |search|
-          terms = search.split(',').map(&:strip)
+          terms = search.strip.split(',')
           return none if terms.empty?
 
           query = terms.map { 'ingredients.title LIKE ?' }.join(' OR ')
