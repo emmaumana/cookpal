@@ -47,6 +47,7 @@ export type TBoxPadding =
   | 's32'
   | 's40'
   | 's60'
+  | 's80'
   | 's120'
 
 export type TBoxBorderRadius = 's0' | 's4' | 's8' | 's10' | 's16' | 's20' | 's25' | 's30' | 's100'

@@ -11,13 +11,14 @@ export const FavoritesPage = () => {
   const { data, loading } = useGetRecipesQuery({
     variables: { ids: storageValues as string[] },
     defaultOptions: { notifyOnNetworkStatusChange: true, fetchPolicy: 'cache-first' },
+    skip: !storageValues.length,
   })
 
   const recipesToDisplay =
     data?.recipesConnection.edges?.map((e) => e?.node).filter((n) => !!n) || []
 
   return (
-    <AppBox flexDirection="column" height="full" paddingTop="s120" gap="s80">
+    <AppBox flexDirection="column" height="full" gap="s40" style={{ paddingTop: '95px' }}>
       <AppHeading title="Your favorites recipes" />
       {recipesToDisplay.length || loading ? (
         <RecipesFeed
