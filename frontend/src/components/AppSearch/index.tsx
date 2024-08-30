@@ -20,7 +20,7 @@ export const AppSearch = ({ totalFound, onSearch }: Props) => {
   useEffect(() => {
     onSearch(debouncedSearchQuery)
     clearStorage()
-    if (debouncedSearchQuery) addItemsToStore(debouncedSearchQuery.replace(' ', ''))
+    if (debouncedSearchQuery) addItemsToStore(debouncedSearchQuery.replace(', ', ','))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchQuery])
 

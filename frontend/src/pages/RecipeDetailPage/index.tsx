@@ -31,16 +31,16 @@ export const RecipeDetailPage = () => {
     if (e.target !== modalContainer.current) return
     navigate(-1)
   }
+  console.log(recipeIngredients)
   const searchMatch = (string: string) => {
-    return string
-      .split(/[\s,]+/)
-      .map((word) => {
-        if (storageValues.includes(word)) {
-          return `<span class="highlight">${word}</span>`
-        }
-        return word
-      })
-      .join(' ')
+    if (!storageValues.length) return string
+    let result = string
+
+    storageValues.forEach(
+      (value) => (result = result.replace(value, `<span class="highlight">${value}</span>`)),
+    )
+
+    return result
   }
 
   return (

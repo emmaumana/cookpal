@@ -4,14 +4,14 @@ type StorageKey = 'favorites' | 'searches'
 
 export const useLocalStorage = (storage: StorageKey) => {
   const initialize = () => setStorageValues(localStorage.getItem(storage)?.split(',') || [])
-  const [storageValues, setStorageValues] = useState<unknown[]>([])
+  const [storageValues, setStorageValues] = useState<string[]>([])
 
-  const addItemToStore = (item: unknown) => {
+  const addItemToStore = (item: string) => {
     const newValues = [...storageValues, item]
     mergeValues(newValues)
   }
 
-  const addItemsToStore = (items: unknown) => {
+  const addItemsToStore = (items: string) => {
     const newValues = [items]
     mergeValues(newValues)
   }
@@ -26,12 +26,12 @@ export const useLocalStorage = (storage: StorageKey) => {
     setStorageValues([])
   }
 
-  const mergeValues = (newValues: unknown[]) => {
+  const mergeValues = (newValues: string[]) => {
     setStorageValues(newValues)
     localStorage.setItem(storage, newValues.join(','))
   }
 
-  const storeIncludesItem = (item: unknown) => storageValues.includes(item)
+  const storeIncludesItem = (item: string) => storageValues.includes(item)
   const refetchStorage = () => initialize()
 
   useEffect(() => {
