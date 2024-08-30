@@ -100,11 +100,7 @@ export const RecipeDetailPage = () => {
             <AppBox className="recipe-detail__body" flexDirection="column" gap="s24">
               <AppBox className="recipe-detail__badges" gap="s12">
                 {cookTime && (
-                  <AppBadge
-                    label={cookTime.toString()}
-                    type="secondary"
-                    icon="AiOutlineClockCircle"
-                  />
+                  <AppBadge label={cookTime.toString()} type="gold" icon="AiOutlineClockCircle" />
                 )}
                 {recipe.rating && (
                   <AppBadge
@@ -113,7 +109,7 @@ export const RecipeDetailPage = () => {
                     icon="IoStarOutline"
                   />
                 )}
-                <AppBadge label="Heart-healty" type="pink" icon="IoHeartCircleOutline" />
+                <AppBadge label="Heart-healty" type="limeDark" icon="IoHeartCircleOutline" />
               </AppBox>
               {recipeIngredients && (
                 <AppBox className="recipe-detail__ingredients" flexDirection="column" gap="s12">

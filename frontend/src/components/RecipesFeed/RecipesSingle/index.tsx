@@ -1,14 +1,11 @@
 import './index.scss'
 
-import React, { useMemo } from 'react'
-import { brandColors, contrastPairing, themeLightColors } from 'lib/themeConfig'
-
 import { AppBadge } from 'components/ui/AppBadge'
 import { AppBox } from 'components/ui/AppBox'
 import { AppIcon } from 'components/ui/AppIcon'
+import React from 'react'
 import { RecipeDetailFragment } from 'graphql/generated'
 import { appRoutes } from 'routes'
-import { sample } from 'lodash'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {
@@ -21,15 +18,6 @@ interface Props {
 export const RecipesSingle = ({ recipe, isFavorite, onAddFavorite, onRemoveFavorite }: Props) => {
   const navigate = useNavigate()
   const recipeTime = recipe.cookTimeMinutes ? recipe.cookTimeMinutes : (recipe.preTimeMinutes ?? 0)
-  // TODO: add color from the backend
-  const recipeBackground = useMemo(
-    () => sample(Object.keys(themeLightColors)) as keyof typeof themeLightColors,
-    [],
-  )
-  const badgeColor = useMemo(
-    () => contrastPairing[recipeBackground] as keyof typeof brandColors,
-    [recipeBackground],
-  )
 
   const recipeCategories = recipe.categories?.nodes?.filter((node) => !!node)
   const handleFavorite = (e: React.MouseEvent) => {
@@ -52,7 +40,7 @@ export const RecipesSingle = ({ recipe, isFavorite, onAddFavorite, onRemoveFavor
     <AppBox
       display="grid"
       className={`app-recipe recipe-${recipe.id}`}
-      backgroundColor={recipeBackground}
+      backgroundColor="white"
       gap="s12"
       padding="s12"
       paddingBottom="s16"
@@ -112,7 +100,7 @@ export const RecipesSingle = ({ recipe, isFavorite, onAddFavorite, onRemoveFavor
         )}
       </AppBox>
       <AppBox className="app-recipe__footer" alignSelf="flex-end">
-        <AppBadge label="Heart-healty" type={badgeColor} icon="IoHeartCircleOutline" />
+        <AppBadge label="Heart-healty" type="limeDark" icon="IoHeartCircleOutline" />
       </AppBox>
     </AppBox>
   )

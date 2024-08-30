@@ -23,8 +23,6 @@ export const RecipesFeed = ({ loading, recipes, itemsPerPage, onRemoveFavorite }
 
   return (
     <AppBox className="recipes-feed__grid" display="grid" gap="s24">
-      {/* listing */}
-
       {loading || !recipes
         ? range(itemsPerPage).map((idx) => <RecipeSingleSkeleton key={`skeleton-${idx}`} />)
         : recipes.map((recipe) => (
