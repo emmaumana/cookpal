@@ -85,6 +85,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 6.0'
+  gem 'rspec-rails', '~> 6.1.0'
 end
 
 gem 'dockerfile-rails', '>= 1.6', :group => :development

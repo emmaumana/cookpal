@@ -2,9 +2,7 @@ fragment RecipeDetail on Recipe {
   id
   title
   slug
-  description
-  cookTimeMinutes
-  preTimeMinutes
+  totalTime
   imageUrl
   rating
   createdAt

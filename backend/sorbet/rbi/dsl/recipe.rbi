@@ -397,9 +397,6 @@ class Recipe
     def annotate(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
-    def by_author(*args, &blk); end
-
-    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def by_id(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
@@ -539,96 +536,6 @@ class Recipe
   end
 
   module GeneratedAttributeMethods
-    sig { returns(T.nilable(::String)) }
-    def author; end
-
-    sig { params(value: T.nilable(::String)).returns(T.nilable(::String)) }
-    def author=(value); end
-
-    sig { returns(T::Boolean) }
-    def author?; end
-
-    sig { returns(T.nilable(::String)) }
-    def author_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def author_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def author_came_from_user?; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def author_change; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def author_change_to_be_saved; end
-
-    sig { params(from: T.nilable(::String), to: T.nilable(::String)).returns(T::Boolean) }
-    def author_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def author_in_database; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def author_previous_change; end
-
-    sig { params(from: T.nilable(::String), to: T.nilable(::String)).returns(T::Boolean) }
-    def author_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def author_previously_was; end
-
-    sig { returns(T.nilable(::String)) }
-    def author_was; end
-
-    sig { void }
-    def author_will_change!; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def cook_time_minutes; end
-
-    sig { params(value: T.nilable(::Integer)).returns(T.nilable(::Integer)) }
-    def cook_time_minutes=(value); end
-
-    sig { returns(T::Boolean) }
-    def cook_time_minutes?; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def cook_time_minutes_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def cook_time_minutes_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def cook_time_minutes_came_from_user?; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def cook_time_minutes_change; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def cook_time_minutes_change_to_be_saved; end
-
-    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
-    def cook_time_minutes_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::Integer)) }
-    def cook_time_minutes_in_database; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def cook_time_minutes_previous_change; end
-
-    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
-    def cook_time_minutes_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::Integer)) }
-    def cook_time_minutes_previously_was; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def cook_time_minutes_was; end
-
-    sig { void }
-    def cook_time_minutes_will_change!; end
-
     sig { returns(::ActiveSupport::TimeWithZone) }
     def created_at; end
 
@@ -673,51 +580,6 @@ class Recipe
 
     sig { void }
     def created_at_will_change!; end
-
-    sig { returns(T.nilable(::String)) }
-    def description; end
-
-    sig { params(value: T.nilable(::String)).returns(T.nilable(::String)) }
-    def description=(value); end
-
-    sig { returns(T::Boolean) }
-    def description?; end
-
-    sig { returns(T.nilable(::String)) }
-    def description_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def description_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def description_came_from_user?; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def description_change; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def description_change_to_be_saved; end
-
-    sig { params(from: T.nilable(::String), to: T.nilable(::String)).returns(T::Boolean) }
-    def description_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def description_in_database; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def description_previous_change; end
-
-    sig { params(from: T.nilable(::String), to: T.nilable(::String)).returns(T::Boolean) }
-    def description_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::String)) }
-    def description_previously_was; end
-
-    sig { returns(T.nilable(::String)) }
-    def description_was; end
-
-    sig { void }
-    def description_will_change!; end
 
     sig { returns(::Integer) }
     def id; end
@@ -854,51 +716,6 @@ class Recipe
     sig { void }
     def image_url_will_change!; end
 
-    sig { returns(T.nilable(::Integer)) }
-    def pre_time_minutes; end
-
-    sig { params(value: T.nilable(::Integer)).returns(T.nilable(::Integer)) }
-    def pre_time_minutes=(value); end
-
-    sig { returns(T::Boolean) }
-    def pre_time_minutes?; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def pre_time_minutes_before_last_save; end
-
-    sig { returns(T.untyped) }
-    def pre_time_minutes_before_type_cast; end
-
-    sig { returns(T::Boolean) }
-    def pre_time_minutes_came_from_user?; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def pre_time_minutes_change; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def pre_time_minutes_change_to_be_saved; end
-
-    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
-    def pre_time_minutes_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::Integer)) }
-    def pre_time_minutes_in_database; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def pre_time_minutes_previous_change; end
-
-    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
-    def pre_time_minutes_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
-
-    sig { returns(T.nilable(::Integer)) }
-    def pre_time_minutes_previously_was; end
-
-    sig { returns(T.nilable(::Integer)) }
-    def pre_time_minutes_was; end
-
-    sig { void }
-    def pre_time_minutes_will_change!; end
-
     sig { returns(T.nilable(::Float)) }
     def rating; end
 
@@ -945,16 +762,7 @@ class Recipe
     def rating_will_change!; end
 
     sig { void }
-    def restore_author!; end
-
-    sig { void }
-    def restore_cook_time_minutes!; end
-
-    sig { void }
     def restore_created_at!; end
-
-    sig { void }
-    def restore_description!; end
 
     sig { void }
     def restore_id!; end
@@ -966,9 +774,6 @@ class Recipe
     def restore_image_url!; end
 
     sig { void }
-    def restore_pre_time_minutes!; end
-
-    sig { void }
     def restore_rating!; end
 
     sig { void }
@@ -978,31 +783,16 @@ class Recipe
     def restore_title!; end
 
     sig { void }
+    def restore_total_time!; end
+
+    sig { void }
     def restore_updated_at!; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def saved_change_to_author; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_author?; end
-
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def saved_change_to_cook_time_minutes; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_cook_time_minutes?; end
 
     sig { returns(T.nilable([::ActiveSupport::TimeWithZone, ::ActiveSupport::TimeWithZone])) }
     def saved_change_to_created_at; end
 
     sig { returns(T::Boolean) }
     def saved_change_to_created_at?; end
-
-    sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
-    def saved_change_to_description; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_description?; end
 
     sig { returns(T.nilable([::Integer, ::Integer])) }
     def saved_change_to_id; end
@@ -1022,12 +812,6 @@ class Recipe
     sig { returns(T::Boolean) }
     def saved_change_to_image_url?; end
 
-    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
-    def saved_change_to_pre_time_minutes; end
-
-    sig { returns(T::Boolean) }
-    def saved_change_to_pre_time_minutes?; end
-
     sig { returns(T.nilable([T.nilable(::Float), T.nilable(::Float)])) }
     def saved_change_to_rating; end
 
@@ -1045,6 +829,12 @@ class Recipe
 
     sig { returns(T::Boolean) }
     def saved_change_to_title?; end
+
+    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
+    def saved_change_to_total_time; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_total_time?; end
 
     sig { returns(T.nilable([::ActiveSupport::TimeWithZone, ::ActiveSupport::TimeWithZone])) }
     def saved_change_to_updated_at; end
@@ -1142,6 +932,51 @@ class Recipe
     sig { void }
     def title_will_change!; end
 
+    sig { returns(T.nilable(::Integer)) }
+    def total_time; end
+
+    sig { params(value: T.nilable(::Integer)).returns(T.nilable(::Integer)) }
+    def total_time=(value); end
+
+    sig { returns(T::Boolean) }
+    def total_time?; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def total_time_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def total_time_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def total_time_came_from_user?; end
+
+    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
+    def total_time_change; end
+
+    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
+    def total_time_change_to_be_saved; end
+
+    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
+    def total_time_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def total_time_in_database; end
+
+    sig { returns(T.nilable([T.nilable(::Integer), T.nilable(::Integer)])) }
+    def total_time_previous_change; end
+
+    sig { params(from: T.nilable(::Integer), to: T.nilable(::Integer)).returns(T::Boolean) }
+    def total_time_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::Integer)) }
+    def total_time_previously_was; end
+
+    sig { returns(T.nilable(::Integer)) }
+    def total_time_was; end
+
+    sig { void }
+    def total_time_will_change!; end
+
     sig { returns(::ActiveSupport::TimeWithZone) }
     def updated_at; end
 
@@ -1188,16 +1023,7 @@ class Recipe
     def updated_at_will_change!; end
 
     sig { returns(T::Boolean) }
-    def will_save_change_to_author?; end
-
-    sig { returns(T::Boolean) }
-    def will_save_change_to_cook_time_minutes?; end
-
-    sig { returns(T::Boolean) }
     def will_save_change_to_created_at?; end
-
-    sig { returns(T::Boolean) }
-    def will_save_change_to_description?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_id?; end
@@ -1209,9 +1035,6 @@ class Recipe
     def will_save_change_to_image_url?; end
 
     sig { returns(T::Boolean) }
-    def will_save_change_to_pre_time_minutes?; end
-
-    sig { returns(T::Boolean) }
     def will_save_change_to_rating?; end
 
     sig { returns(T::Boolean) }
@@ -1219,6 +1042,9 @@ class Recipe
 
     sig { returns(T::Boolean) }
     def will_save_change_to_title?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_total_time?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_updated_at?; end
@@ -1233,9 +1059,6 @@ class Recipe
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def annotate(*args, &blk); end
-
-    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
-    def by_author(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def by_id(*args, &blk); end

@@ -89,7 +89,7 @@ export const AppBox = ({
   return (
     <div
       ref={ref}
-      className="app-box"
+      className={props.className}
       {...props}
       style={{
         ...props.style,

@@ -23,6 +23,10 @@ export const AppSearch = ({ totalFound, onSearch }: Props) => {
     if (debouncedSearchQuery) addItemsToStore(debouncedSearchQuery.replace(', ', ','))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchQuery])
+  useEffect(() => {
+    return () => clearStorage()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <AppBox className="app-search" flexDirection="column" gap="s8">

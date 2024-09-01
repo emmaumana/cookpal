@@ -22,7 +22,6 @@ export type Scalars = {
 export type Category = {
   __typename?: 'Category';
   createdAt: Scalars['ISO8601DateTime']['output'];
-  description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
   slug: Scalars['String']['output'];
@@ -169,17 +168,10 @@ export type PageInfo = {
 
 export type Query = {
   __typename?: 'Query';
-  categories: Array<Category>;
   category: Category;
   ingredient: Ingredient;
-  ingredients: Array<Ingredient>;
   recipe: Recipe;
   recipesConnection: RecipeConnection;
-};
-
-
-export type QueryCategoriesArgs = {
-  page?: Scalars['Int']['input'];
 };
 
 
@@ -190,11 +182,6 @@ export type QueryCategoryArgs = {
 
 export type QueryIngredientArgs = {
   id: Scalars['ID']['input'];
-};
-
-
-export type QueryIngredientsArgs = {
-  page?: Scalars['Int']['input'];
 };
 
 
@@ -209,23 +196,22 @@ export type QueryRecipesConnectionArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   ids?: InputMaybe<Array<Scalars['ID']['input']>>;
   last?: InputMaybe<Scalars['Int']['input']>;
+  ratingSort?: InputMaybe<Scalars['String']['input']>;
   search?: InputMaybe<Scalars['String']['input']>;
+  totalTimeSort?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Recipe = {
   __typename?: 'Recipe';
-  author?: Maybe<Scalars['String']['output']>;
   categories?: Maybe<CategoryConnection>;
-  cookTimeMinutes?: Maybe<Scalars['Int']['output']>;
   createdAt: Scalars['ISO8601DateTime']['output'];
-  description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   imageUrl?: Maybe<Scalars['String']['output']>;
   ingredients?: Maybe<IngredientConnection>;
-  preTimeMinutes?: Maybe<Scalars['Int']['output']>;
   rating?: Maybe<Scalars['Float']['output']>;
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
+  totalTime?: Maybe<Scalars['Int']['output']>;
   updatedAt: Scalars['ISO8601DateTime']['output'];
 };
 
@@ -289,32 +275,32 @@ export type DeleteCategoryMutationVariables = Exact<{
 
 export type DeleteCategoryMutation = { __typename?: 'Mutation', categoryDelete?: { __typename?: 'CategoryDeletePayload', errors: Array<string>, category: { __typename?: 'Category', id: string, name: string } } | null };
 
+export type RecipeDetailFragment = { __typename?: 'Recipe', id: string, title: string, slug: string, totalTime?: number | null, imageUrl?: string | null, rating?: number | null, createdAt: any, categories?: { __typename?: 'CategoryConnection', nodes?: Array<{ __typename?: 'Category', id: string, name: string } | null> | null } | null, ingredients?: { __typename?: 'IngredientConnection', nodes?: Array<{ __typename?: 'Ingredient', id: string, title: string } | null> | null } | null };
+
 export type GetRecipesQueryVariables = Exact<{
   ids?: InputMaybe<Array<Scalars['ID']['input']> | Scalars['ID']['input']>;
   search?: InputMaybe<Scalars['String']['input']>;
+  ratingSort?: InputMaybe<Scalars['String']['input']>;
+  totalTimeSort?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
-export type GetRecipesQuery = { __typename?: 'Query', recipesConnection: { __typename?: 'RecipeConnection', recordCount?: number | null, edges?: Array<{ __typename?: 'RecipeEdge', cursor: string, node?: { __typename?: 'Recipe', id: string, title: string, slug: string, description?: string | null, cookTimeMinutes?: number | null, preTimeMinutes?: number | null, imageUrl?: string | null, rating?: number | null, createdAt: any, categories?: { __typename?: 'CategoryConnection', nodes?: Array<{ __typename?: 'Category', id: string, name: string } | null> | null } | null, ingredients?: { __typename?: 'IngredientConnection', nodes?: Array<{ __typename?: 'Ingredient', id: string, title: string } | null> | null } | null } | null } | null> | null, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null } } };
-
-export type RecipeDetailFragment = { __typename?: 'Recipe', id: string, title: string, slug: string, description?: string | null, cookTimeMinutes?: number | null, preTimeMinutes?: number | null, imageUrl?: string | null, rating?: number | null, createdAt: any, categories?: { __typename?: 'CategoryConnection', nodes?: Array<{ __typename?: 'Category', id: string, name: string } | null> | null } | null, ingredients?: { __typename?: 'IngredientConnection', nodes?: Array<{ __typename?: 'Ingredient', id: string, title: string } | null> | null } | null };
+export type GetRecipesQuery = { __typename?: 'Query', recipesConnection: { __typename?: 'RecipeConnection', recordCount?: number | null, edges?: Array<{ __typename?: 'RecipeEdge', cursor: string, node?: { __typename?: 'Recipe', id: string, title: string, slug: string, totalTime?: number | null, imageUrl?: string | null, rating?: number | null, createdAt: any, categories?: { __typename?: 'CategoryConnection', nodes?: Array<{ __typename?: 'Category', id: string, name: string } | null> | null } | null, ingredients?: { __typename?: 'IngredientConnection', nodes?: Array<{ __typename?: 'Ingredient', id: string, title: string } | null> | null } | null } | null } | null> | null, pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean, startCursor?: string | null, endCursor?: string | null } } };
 
 export type GetRecipeQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type GetRecipeQuery = { __typename?: 'Query', recipe: { __typename?: 'Recipe', id: string, title: string, slug: string, description?: string | null, cookTimeMinutes?: number | null, preTimeMinutes?: number | null, imageUrl?: string | null, rating?: number | null, createdAt: any, categories?: { __typename?: 'CategoryConnection', nodes?: Array<{ __typename?: 'Category', id: string, name: string } | null> | null } | null, ingredients?: { __typename?: 'IngredientConnection', nodes?: Array<{ __typename?: 'Ingredient', id: string, title: string } | null> | null } | null } };
+export type GetRecipeQuery = { __typename?: 'Query', recipe: { __typename?: 'Recipe', id: string, title: string, slug: string, totalTime?: number | null, imageUrl?: string | null, rating?: number | null, createdAt: any, categories?: { __typename?: 'CategoryConnection', nodes?: Array<{ __typename?: 'Category', id: string, name: string } | null> | null } | null, ingredients?: { __typename?: 'IngredientConnection', nodes?: Array<{ __typename?: 'Ingredient', id: string, title: string } | null> | null } | null } };
 
 export const RecipeDetailFragmentDoc = gql`
     fragment RecipeDetail on Recipe {
   id
   title
   slug
-  description
-  cookTimeMinutes
-  preTimeMinutes
+  totalTime
   imageUrl
   rating
   createdAt
@@ -446,8 +432,14 @@ export type DeleteCategoryMutationHookResult = ReturnType<typeof useDeleteCatego
 export type DeleteCategoryMutationResult = Apollo.MutationResult<DeleteCategoryMutation>;
 export type DeleteCategoryMutationOptions = Apollo.BaseMutationOptions<DeleteCategoryMutation, DeleteCategoryMutationVariables>;
 export const GetRecipesDocument = gql`
-    query GetRecipes($ids: [ID!], $search: String, $after: String) {
-  recipesConnection(ids: $ids, search: $search, after: $after) {
+    query GetRecipes($ids: [ID!], $search: String, $ratingSort: String, $totalTimeSort: String, $after: String) {
+  recipesConnection(
+    ids: $ids
+    search: $search
+    ratingSort: $ratingSort
+    totalTimeSort: $totalTimeSort
+    after: $after
+  ) {
     edges {
       cursor
       node {
@@ -479,6 +471,8 @@ export const GetRecipesDocument = gql`
  *   variables: {
  *      ids: // value for 'ids'
  *      search: // value for 'search'
+ *      ratingSort: // value for 'ratingSort'
+ *      totalTimeSort: // value for 'totalTimeSort'
  *      after: // value for 'after'
  *   },
  * });

@@ -16,10 +16,8 @@ def recipe_seeds
 
       new_recipe = Recipe.create!(
         title: recipe[:title],
-        pre_time_minutes: recipe[:prep_time],
-        cook_time_minutes: recipe[:cook_time],
+        total_time: recipe[:prep_time] + recipe[:cook_time],
         rating: recipe[:ratings],
-        author: recipe[:author],
         image_url: url
       )
 

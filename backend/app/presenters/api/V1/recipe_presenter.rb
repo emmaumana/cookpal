@@ -19,11 +19,8 @@ module Api
           id: source.id,
           title: source.title,
           slug: source.slug,
-          description: source.description,
-          pre_time_minutes: source.pre_time_minutes,
-          cook_time_minutes: source.cook_time_minutes,
+          total_time: source.total_time,
           rating: source.rating,
-          author: source.author,
           image_url: source.image_url,
           created_at: source.created_at,
           updated_at: source.updated_at

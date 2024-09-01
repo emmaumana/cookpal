@@ -28,7 +28,7 @@ export const FavoritesPage = () => {
           onRemoveFavorite={refetchStorage}
         />
       ) : (
-        <EmptyState title="No favorites recepies added yet..." />
+        <EmptyState title="No favorites recipes added yet..." />
       )}
       <Outlet />
     </AppBox>

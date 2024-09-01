@@ -1,0 +1,29 @@
+query GetRecipes(
+  $ids: [ID!]
+  $search: String
+  $ratingSort: String
+  $totalTimeSort: String
+  $after: String
+) {
+  recipesConnection(
+    ids: $ids
+    search: $search
+    ratingSort: $ratingSort
+    totalTimeSort: $totalTimeSort
+    after: $after
+  ) {
+    edges {
+      cursor
+      node {
+        ...RecipeDetail
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    recordCount
+  }
+}

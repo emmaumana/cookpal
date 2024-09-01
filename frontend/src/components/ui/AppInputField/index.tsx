@@ -12,10 +12,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   iconPosition?: 'left' | 'right'
 }
 
-export const AppInputField = ({ label, icon, iconPosition, type = 'text', ...props }: Props) => {
+export const AppInputField = ({ label, icon, iconPosition, ...props }: Props) => {
   return (
     <AppBox
-      className={`app-input ${type}`}
+      className="app-input"
       flexDirection="column"
       backgroundColor="white"
       paddingX="s24"

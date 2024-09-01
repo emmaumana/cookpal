@@ -6,7 +6,7 @@ RSpec.describe Ingredient, type: :model do
   let(:title) { 'Test ingredient' }
 
   describe 'validations' do
-    it { should validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:title) }
 
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
@@ -23,7 +23,7 @@ RSpec.describe Ingredient, type: :model do
 
   describe 'relationships' do
     it do
-      should have_many(:recipes)
+      expect(subject).to have_many(:recipes)
         .through(:recipe_ingredients)
         .class_name('Recipe')
     end

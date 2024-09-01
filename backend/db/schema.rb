@@ -17,7 +17,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_22_154658) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
@@ -51,11 +50,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_22_154658) do
   create_table "recipes", force: :cascade do |t|
     t.string "title", null: false
     t.string "slug", null: false
-    t.string "description"
-    t.integer "pre_time_minutes", default: 0
-    t.integer "cook_time_minutes", default: 0
+    t.integer "total_time", default: 0
     t.float "rating", default: 0.0
-    t.string "author"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -9,8 +9,8 @@ RSpec.describe RecipeIngredient, type: :model do
   # associations
   describe 'associations' do
     it do
-      should belong_to(:recipe).class_name('Recipe')
-      should belong_to(:ingredient).class_name('Ingredient')
+      expect(subject).to belong_to(:recipe).class_name('Recipe')
+      expect(subject).to belong_to(:ingredient).class_name('Ingredient')
     end
   end
 end

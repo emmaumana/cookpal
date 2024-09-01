@@ -26,12 +26,11 @@ export const RecipeDetailPage = () => {
 
   const recipeCategories = recipe.categories?.nodes?.filter((n) => !!n)
   const recipeIngredients = recipe.ingredients?.nodes?.filter((n) => !!n)
-  const cookTime = recipe.cookTimeMinutes || recipe.preTimeMinutes || null
   const handleOnClick = (e: React.MouseEvent) => {
     if (e.target !== modalContainer.current) return
     navigate(-1)
   }
-  console.log(recipeIngredients)
+
   const searchMatch = (string: string) => {
     if (!storageValues.length) return string
     let result = string
@@ -99,8 +98,12 @@ export const RecipeDetailPage = () => {
             </AppBox>
             <AppBox className="recipe-detail__body" flexDirection="column" gap="s24">
               <AppBox className="recipe-detail__badges" gap="s12">
-                {cookTime && (
-                  <AppBadge label={cookTime.toString()} type="gold" icon="AiOutlineClockCircle" />
+                {!!recipe?.totalTime && (
+                  <AppBadge
+                    label={recipe.totalTime.toString()}
+                    type="gold"
+                    icon="AiOutlineClockCircle"
+                  />
                 )}
                 {recipe.rating && (
                   <AppBadge

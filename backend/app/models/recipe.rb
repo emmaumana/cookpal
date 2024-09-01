@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
     # validations
     validates :title, presence: true
     validates :slug, presence: true, uniqueness: true
-    validates :pre_time_minutes, :cook_time_minutes, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :total_time, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }, allow_nil: true
 
     # relationships
@@ -17,20 +17,18 @@ class Recipe < ApplicationRecord
 
     # scopes
     scope :by_id, ->(id) { where(id: id) }
-    scope :by_author, ->(author) { where(author: author) }
     scope :by_slug, ->(slug) { where(slug: slug) }
     scope :by_ingredients_search,
           lambda { |search|
           terms = search.strip.split(',')
-          return none if terms.empty?
+          return if terms.empty?
 
-          query = terms.map { 'ingredients.title LIKE ?' }.join(' OR ')
+          query = terms.map { 'ingredients.title ILIKE ?' }.join(' OR ')
           placeholders = terms.map { |term| "%#{term}%" }
 
-          # TOOD: Fix this
-          T.unsafe(joins(:ingredients))
-            .where(query, *placeholders)
-            .distinct
+          # TOOD: Fix this - Sorbet doesn't like this
+          where(query, T.unsafe(*placeholders))
+          .distinct
           }
 
     sig { void }

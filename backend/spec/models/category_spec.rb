@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject { described_class.new(name: name, description: description) }
+  subject { described_class.new(name: name) }
 
   let(:name) { 'Test category' }
   let(:generated_slug) { 'test-category' }
-  let(:description) { 'Test description' }
 
   describe 'validations' do
-    it { should validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:name) }
 
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
@@ -40,7 +39,7 @@ RSpec.describe Category, type: :model do
 
   describe 'relationships' do
     it do
-      should have_many(:recipes)
+      expect(subject).to have_many(:recipes)
         .through(:recipe_categories)
         .class_name('Recipe')
     end

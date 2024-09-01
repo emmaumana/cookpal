@@ -15,7 +15,7 @@ const client = new ApolloClient({
       Query: {
         fields: {
           recipesConnection: {
-            keyArgs: ['ids'], // Disables the distinction between query results with different variables
+            keyArgs: ['ids', 'ratingSort', 'totalTimeSort', 'search'], // Disables the distinction between query results with different variables
             merge(existing = { edges: [], pageInfo: {} }, incoming) {
               return !existing.edges
                 ? {

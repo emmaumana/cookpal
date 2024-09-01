@@ -1,6 +1,5 @@
 type Category {
   createdAt: ISO8601DateTime!
-  description: String
   id: ID!
   name: String!
   slug: String!
@@ -223,10 +222,8 @@ type PageInfo {
 }
 
 type Query {
-  categories(page: Int! = 1): [Category!]!
   category(id: ID!): Category!
   ingredient(id: ID!): Ingredient!
-  ingredients(page: Int! = 1): [Ingredient!]!
   recipe(id: ID!): Recipe!
   recipesConnection(
     """
@@ -249,12 +246,13 @@ type Query {
     Returns the last _n_ elements from the list.
     """
     last: Int
+    ratingSort: String
     search: String
+    totalTimeSort: String
   ): RecipeConnection!
 }
 
 type Recipe {
-  author: String
   categories(
     """
     Returns the elements in the list that come after the specified cursor.
@@ -276,9 +274,7 @@ type Recipe {
     """
     last: Int
   ): CategoryConnection
-  cookTimeMinutes: Int
   createdAt: ISO8601DateTime!
-  description: String
   id: ID!
   imageUrl: String
   ingredients(
@@ -302,10 +298,10 @@ type Recipe {
     """
     last: Int
   ): IngredientConnection
-  preTimeMinutes: Int
   rating: Float
   slug: String!
   title: String!
+  totalTime: Int
   updatedAt: ISO8601DateTime!
 }
 

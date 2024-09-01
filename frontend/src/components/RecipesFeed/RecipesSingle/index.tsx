@@ -17,7 +17,8 @@ interface Props {
 
 export const RecipesSingle = ({ recipe, isFavorite, onAddFavorite, onRemoveFavorite }: Props) => {
   const navigate = useNavigate()
-  const recipeTime = recipe.cookTimeMinutes ? recipe.cookTimeMinutes : (recipe.preTimeMinutes ?? 0)
+
+  if (!recipe) return null
 
   const recipeCategories = recipe.categories?.nodes?.filter((node) => !!node)
   const handleFavorite = (e: React.MouseEvent) => {
@@ -33,8 +34,16 @@ export const RecipesSingle = ({ recipe, isFavorite, onAddFavorite, onRemoveFavor
       navigate(appRoutes.home.children[0].route(recipe.id), { state: { id: recipe.id } })
     }
   }
+  const parseTime = (time: number) => {
+    if (time.toFixed().length <= 2) return `${time}m`
 
-  if (!recipe) return null
+    const hours = Math.floor(time / 60)
+    const minutes = time % 60
+
+    if (minutes >= 10) return `${hours}:${minutes}h`
+
+    return `${hours}:0${minutes}h`
+  }
 
   return (
     <AppBox
@@ -65,15 +74,14 @@ export const RecipesSingle = ({ recipe, isFavorite, onAddFavorite, onRemoveFavor
           >
             {isFavorite ? <AppIcon icon="IoIosHeart" /> : <AppIcon icon="IoIosHeartEmpty" />}
           </AppBox>
-          {recipeTime > 0 && (
-            <AppBadge
-              className="app-recipe__cooktime"
-              borderRadius="s100"
-              label={`${recipeTime} min`}
-              icon="AiOutlineClockCircle"
-              type="white"
-            />
-          )}
+
+          <AppBadge
+            className="app-recipe__cooktime"
+            borderRadius="s100"
+            label={parseTime(recipe.totalTime || 0)}
+            icon="AiOutlineClockCircle"
+            type="white"
+          />
         </AppBox>
       </AppBox>
       <AppBox className="app-recipe__body" flexDirection="column" gap="s6">

@@ -362,3 +362,12 @@ Style/StringLiterals:
     - "**/db/data_schema.rb"
     - "**/db/schema.rb"
     - "**/db/seeds/**/*"
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
