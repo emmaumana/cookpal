@@ -23,3 +23,7 @@ If the user haved used the search feature and opens one, queries will be highlig
   - Sorbet
 
 Visit: https://cookpal.fly.dev/
+
+#### DB
+
+![cookpal-db](https://github.com/user-attachments/assets/abd78dc3-7b7b-4ecc-a663-8792dec661f6)
