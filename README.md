@@ -32,3 +32,6 @@ If the user haved used the search feature and opens one, queries will be highlig
 
 ![image](https://github.com/user-attachments/assets/d70e20fb-807e-42ce-88e5-8aab427d5dbe)
 
+
+### Visit: https://cookpal.fly.dev/
+
